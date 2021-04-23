@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = "Path created"
+    @users = User.all
     render "index.json.jb"
   end
 
