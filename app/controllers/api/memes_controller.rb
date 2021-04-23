@@ -20,7 +20,7 @@ class Api::MemesController < ApplicationController
     if @meme.save
       render "show.json.jb"
     else
-      render json: { errors: @user.errors.full_messages}, status: :bad_request
+      render json: { errors: @meme.errors.full_messages}, status: :bad_request
     end
   end
 
