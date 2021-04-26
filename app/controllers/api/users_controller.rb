@@ -15,8 +15,8 @@ class Api::UsersController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email]
-      # password: params[:password]
-      # password_conformation: params[:password_conformation]
+      password: params[:password]
+      password_conformation: params[:password_conformation]
     )
     if @user.save
       render "show.json.jb"
