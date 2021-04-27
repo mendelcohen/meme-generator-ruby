@@ -1,4 +1,6 @@
 class Api::MemesController < ApplicationController
+  
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
     @memes = Meme.all
@@ -15,7 +17,7 @@ class Api::MemesController < ApplicationController
       top_text: params[:top_text],
       img_url: params[:img_url],
       bottom_text: params[:bottom_text],
-      # user_id: current_user.id
+      user_id: current_user.id
     )
     if @meme.save
       render "show.json.jb"

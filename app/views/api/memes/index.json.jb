@@ -1,8 +1,13 @@
-@memes.map do |meme| {
-  id: meme.id,
-  top_text: meme.top_text,
-  img_url: meme.img_url,
-  bottom_text: meme.bottom_text,
-  user_id: meme.user_id
-}
+@memes.map do |meme|
+  render partial: "meme.json.jb", locals: { meme: meme }
 end
+
+
+# @memes.map do |meme| {
+#   id: meme.id,
+#   top_text: meme.top_text,
+#   img_url: meme.img_url,
+#   bottom_text: meme.bottom_text,
+#   user_id: meme.user_id
+# }
+# end

@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  
+  before_action :authenticate_user, except: [:index, :create]
 
   def index
     @users = User.all
@@ -30,8 +32,10 @@ class Api::UsersController < ApplicationController
     @user.first_name = params[:first_name] || @user.first_name
     @user.last_name = params[:last_name] || @user.last_name
     @user.email = params[:email] || @user.email
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
+    if params[:password]
+      @user.password = params[:password]
+      @user.password_confirmation = params[:password_confirmation]
+    end
     if @user.save
       render "show.json.jb"
     else
