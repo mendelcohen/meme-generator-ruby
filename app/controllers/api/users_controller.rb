@@ -14,11 +14,11 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
+      first_name: params[:firstName],
+      last_name: params[:lastName],
       email: params[:email],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:passwordConfirmation]
     )
     if @user.save
       render "show.json.jb"

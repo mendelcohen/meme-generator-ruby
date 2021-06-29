@@ -21,6 +21,11 @@ Bundler.require(*Rails.groups)
 
 module MemeGenerator
   class Application < Rails::Application
+    
+    # config.action_dispatch.default_headers = {
+    #   'Access-Control-Allow-Origin' => 'http://localhost:3001',
+    #   'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    # }
     config.generators.assets = false
     config.generators.helper = false
     # Initialize configuration defaults for originally generated Rails version.
@@ -32,6 +37,15 @@ module MemeGenerator
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+
+    # config.generators.system_tests = nil
+
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
+    #   end
+    # end
+    
   end
 end

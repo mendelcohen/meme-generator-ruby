@@ -3,5 +3,6 @@
   top_text: meme.top_text,
   img_url: meme.img_url,
   bottom_text: meme.bottom_text,
+  likes: meme.likes,
   user_id: meme.user_id
 }

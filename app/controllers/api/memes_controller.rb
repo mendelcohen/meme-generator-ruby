@@ -14,10 +14,11 @@ class Api::MemesController < ApplicationController
 
   def create
     @meme = Meme.new(
-      top_text: params[:top_text],
-      img_url: params[:img_url],
-      bottom_text: params[:bottom_text],
-      user_id: current_user.id
+      top_text: params[:topText],
+      img_url: params[:imgUrl],
+      bottom_text: params[:bottomText],
+      likes: params[:likes],
+      # user_id: current_user.id
     )
     if @meme.save
       render "show.json.jb"
@@ -28,9 +29,10 @@ class Api::MemesController < ApplicationController
 
   def update
     @meme = Meme.find_by(id: params[:id])
-    @meme.top_text = params[:top_text] || @meme.top_text
-    @meme.img_url = params[:img_url] || @meme.img_url
-    @meme.bottom_text = params[:bottom_text] || @meme.bottom_text
+    @meme.top_text = params[:topText] || @meme.top_text
+    @meme.img_url = params[:imgUrl] || @meme.img_url
+    @meme.bottom_text = params[:bottomText] || @meme.bottom_text
+    @meme.likes = params[:likes] || @meme.likes
     if @meme.save
       render "show.json.jb"
     else
